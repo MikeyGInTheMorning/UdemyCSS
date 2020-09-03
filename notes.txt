@@ -1,11 +1,36 @@
 
 SASS
 
-variables - for values
 nesting - to nest selectors inside one another
 operators - for mathmatical operations in css
 patials and imports - import other css files
-mixins - write resuable css
-functions - similar to mixins, but produce a value to be used
-extends - make different selectors inherit declarations that are common to all
 control directives - writing complex code using coniditionals and loops
+
+variables - for values
+$var-name: VALUE;
+
+
+mixins - write resuable css
+@mixin temp($variable){
+    PROP:VALUE;
+}
+@include temp(50);
+
+
+functions - similar to mixins, but produce a value to be used
+@function divide($a, $b){
+  @return  $a/$b;
+}
+...
+margin: divide(60, 2) * 1px; //* 1px needed to convert back to px
+...
+
+extends - make different selectors inherit declarations that are common to all elements that use it (double checkoutput)
+%btn-placeholder {
+  padding: 10px;
+  display: inline-block;
+  text-align:center;
+  border-radius: 100px;
+  @include style-link-text($btn-color-text);
+}
+@extend %btn-placeholder;
