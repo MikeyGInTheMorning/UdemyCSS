@@ -34,3 +34,57 @@ extends - make different selectors inherit declarations that are common to all e
   @include style-link-text($btn-color-text);
 }
 @extend %btn-placeholder;
+
+@extend with/without placeholders are best when you have shared static, 
+similar styles but they cause duplicate classes while mixins are best for 
+dynamic styles which uses passed arguments but they lead to repeated declarations.
+
+
+
+=====node
+-create a new node project
+npm init 
+
+
+
+====flexbox
+->>>> main axis is horizontal, cross is vertical
+->>>> items inside are called flex-items
+
+=flexbox properties 
+
+flex-direction: which way the main axis goes
+row | row-reverse | column | column-reverse
+
+flex-wrap: how to handle overload of flex items
+nowrap | wrap | wrap-reverse
+
+jusitfy-content: how to align the flex items along main axis
+flex-start | flex-end | center | space-between | space-around | space-evenely
+
+align-items: how to align flex items along cross axis (baseline uses text bottom)
+stretch | flex-start | flex-end | center | baseline
+
+align-content: how to algin flex items if there are multiple rows
+stretch | flex-start | flex-end | center | space-between | space-around
+
+
+=flexbox item properties
+
+align-self: how to align a single item along cross axis (similar to align-items)
+auto | stretch | flex-start | flex-end | center| baseline
+
+order: order placement, goes by negative number up front
+0 | integer
+
+flex-grow: how much an item can grow, fills remaining whitepace *
+0 | integer
+
+flex-shrink: how much an item can shrink * 
+1 | integer ( 0 = can shrink, 1= cant shrink will push others off view)
+ 
+flex-basis: item base width   *
+auto | percentage/pixel/etc (if too small, this will be overridden unless shrink is set)
+
+* flex: combines flex-grow, flex-shrink, flex-basis
+flex: 0 1 auto
