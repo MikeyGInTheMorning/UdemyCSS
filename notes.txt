@@ -1,0 +1,11 @@
+
+SASS
+
+variables - for values
+nesting - to nest selectors inside one another
+operators - for mathmatical operations in css
+patials and imports - import other css files
+mixins - write resuable css
+functions - similar to mixins, but produce a value to be used
+extends - make different selectors inherit declarations that are common to all
+control directives - writing complex code using coniditionals and loops

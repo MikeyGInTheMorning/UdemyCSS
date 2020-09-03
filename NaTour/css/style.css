@@ -7,19 +7,36 @@ Dark green: #28b485
 
 */
 
-* {
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
+    box-sizing: border-box inherit;
+}
+
+html {
+    /* 
+        1 rem = 10px 
+        converting px to rem
+    */
+
+    /* 
+        this accounts for people who use larger text size
+        we want 10 px, but browerser default is 16
+        10/16 = .625
+    */
+    font-size: 62.5%;
 }
 
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7;
     color: #7777;
-    padding: 30px;
+    padding: 3rem;
+    box-sizing: border-box;
 }
 
 /* bennetfeely/clippy for other clip-paths */
@@ -37,21 +54,21 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
-.logo-box {
+.header__logo-box {
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 }
 
-.logo {
-    height: 35px;
+.header__logo {
+    height: 3.5rem;
 }
 /* 
 .logo:hover {
     animation: moveInRight 1s ease-in;
 } */
 
-.text-box {
+.header__text-box {
     position: absolute;
     top: 40%;
     left: 50%;
@@ -65,14 +82,14 @@ body {
 
     /* fixes animation shake */
     backface-visibility: hidden;
-    margin-bottom: 50px;
+    margin-bottom: 5rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 30px;
+    letter-spacing: 3rem;
 
     animation-name: moveInLeft;
     animation-duration: 1s;
@@ -85,11 +102,11 @@ body {
     */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 19.7px;
+    letter-spacing: 1.9rem;
 
     animation-name: moveInRight;
     animation-duration: 1s;
@@ -99,11 +116,11 @@ body {
 @keyframes moveInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
     }
 
     80% {
-        transform: translateX(10px);
+        transform: translateX(1rem);
     }
 
     100% {
@@ -129,11 +146,11 @@ body {
 @keyframes moveInRight {
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
 
     80% {
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
     }
 
     100% {
@@ -160,31 +177,32 @@ body {
 bring these together to hide the clicked state 
 transition all makes everything animate*/
 .btn:link,
-.btn-visited {
+.btn--visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     display: inline-block;
-    border-radius: 100px;
+    border-radius: 10rem;
     transition: all .2s;
     position: relative;
+    font-size: 1.6rem;
 }
 
 /*  when hovering, move up 3 px*/
 .btn:hover {
     transform: translateY(-3px);
     /*  x y blur color*/
-    box-shadow: 0 10px 50px rgba(0,0,0,.2);
+    box-shadow: 0 1rem 5rem rgba(0,0,0,.2);
 }
 
 /*  when hovering, move up 1 px (from original, not hovered state)*/
 .btn:active {
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
 }
 
 /* color prperty hides clicked text color*/
-.btn-white {
+.btn--white {
     background-color: white;
     color: rgb(71, 71, 71);
 }
@@ -217,11 +235,11 @@ transition all calls the after, and hover::after
 @keyframes moveInButton {
     0% {
         opacity: 0;
-        transform: translateY(100);
+        transform: translateY(10rem);
     }
 
     80% {
-        transform: translateY(-10px);
+        transform: translateY(-1rem);
     }
 
     100% {
