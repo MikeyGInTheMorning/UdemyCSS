@@ -88,3 +88,7 @@ auto | percentage/pixel/etc (if too small, this will be overridden unless shrink
 
 * flex: combines flex-grow, flex-shrink, flex-basis
 flex: 0 1 auto
+
+
+====Trillo
+-npm run start
